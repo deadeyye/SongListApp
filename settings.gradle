@@ -1,3 +1,4 @@
 rootProject.name = "SongListApp"
 include ':app'
 include ':domain'
+include ':infrastructure'
