@@ -1,2 +1,3 @@
 rootProject.name = "SongListApp"
 include ':app'
+include ':domain'
