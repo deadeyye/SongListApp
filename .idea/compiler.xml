@@ -3,6 +3,7 @@
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.8">
       <module name="SongListApp.app" target="11" />
+      <module name="SongListApp.infrastructure" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>
