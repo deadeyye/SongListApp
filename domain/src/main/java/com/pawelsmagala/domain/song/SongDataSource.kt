@@ -4,5 +4,6 @@ import com.pawelsmagala.domain.song.Song
 import kotlinx.coroutines.flow.Flow
 
 interface SongDataSource {
-    fun getSongList() : Flow<List<Song>>
+    suspend fun getSongList(): Flow<List<Song>>
+    fun getSourceName(): String
 }
