@@ -1,3 +1,3 @@
 object InfrastructureConfig {
-    val jsonFileName = "songs-list.json"
+    const val jsonFileName = "songs-list.json"
 }

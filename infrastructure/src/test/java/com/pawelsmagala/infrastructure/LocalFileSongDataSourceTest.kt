@@ -1,6 +1,7 @@
 package com.pawelsmagala.infrastructure
 
 
+import InfrastructureConfig
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import com.pawelsmagala.domain.song.Song
@@ -11,9 +12,8 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.single
 import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.test.runBlockingTest
+import org.junit.Assert.assertEquals
 import org.junit.Test
-import org.junit.Assert.*
 import org.mockito.Mockito.anyString
 import java.io.IOException
 

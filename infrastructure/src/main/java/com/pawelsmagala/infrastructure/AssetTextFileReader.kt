@@ -1,12 +1,7 @@
 package com.pawelsmagala.infrastructure
 
 import android.content.Context
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.withContext
 import java.io.IOException
-import java.lang.Exception
 
 interface IAssetTextFileReader {
     fun readFileFromAsset(assetFilePath: String): String

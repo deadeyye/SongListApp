@@ -2,8 +2,6 @@ package com.pawelsmagala.songlistapp
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.pawelsmagala.domain.song.Song
 import com.pawelsmagala.songlistapp.databinding.SongListItemBinding
