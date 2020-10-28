@@ -5,3 +5,7 @@ data class Song (
         val artist: String,
         val year: String
         )
+
+{
+        fun getDescription() = "$artist ($year)"
+}
