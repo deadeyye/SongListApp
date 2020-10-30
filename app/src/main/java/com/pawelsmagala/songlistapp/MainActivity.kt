@@ -2,6 +2,8 @@ package com.pawelsmagala.songlistapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.Observer
+import androidx.lifecycle.asLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pawelsmagala.domain.song.Song
@@ -19,8 +21,10 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
 
+
     @Inject
     lateinit var songDataSource: SongDataSource
+    var songList: ArrayList<Song> = ArrayList()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,16 +35,17 @@ class MainActivity : AppCompatActivity() {
 
         setupRecyclerView()
 
+        songDataSource.getSongList().asLiveData().observe(this,
+                { songListNew ->
+                    songList.clear()
+                    songList.addAll(songListNew)
+                    viewAdapter.notifyDataSetChanged()
+                })
 
     }
 
     private fun setupRecyclerView() {
-        viewAdapter = SongAdapter(
-            listOf(
-                Song("Caught Up in You", ".38 Special", "1982"),
-                Song("Fantasy Girl", ".38 Special", "")
-            )
-        )
+        viewAdapter = SongAdapter(songList)
 
         binding.songListRecycler.apply {
             setHasFixedSize(true)

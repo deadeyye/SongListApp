@@ -7,5 +7,7 @@ data class Song (
         )
 
 {
-        fun getDescription() = "$artist ($year)"
+
+        fun getYearDescription() = year.ifBlank { "year unknown" }//this should be translatable string, but for purpose of this task I'll leave it as is
+        fun getDescription() = "$artist (${getYearDescription()})"
 }

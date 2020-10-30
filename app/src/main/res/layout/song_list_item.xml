@@ -20,10 +20,12 @@
       android:orientation="vertical"
 
       style="@style/TextAppearance.MaterialComponents.Headline2">
+
     <TextView
         android:id="@+id/txtFirstLine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         tools:text="@tools:sample/lorem[3]" />
     <TextView
         android:id="@+id/txtSecondLine"

@@ -17,7 +17,7 @@ class LocalFileSongDataSource (
 ) : SongDataSource {
 
     @Suppress("BlockingMethodInNonBlockingContext")
-    override suspend fun getSongList() = flow {
+    override fun getSongList() = flow {
 
 
         val json = assetTextFileReader.readFileFromAsset(fileName)

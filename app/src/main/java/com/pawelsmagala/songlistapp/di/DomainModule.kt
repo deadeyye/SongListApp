@@ -2,9 +2,9 @@ package com.pawelsmagala.songlistapp.di
 
 import com.pawelsmagala.domain.song.SongDataSource
 import com.pawelsmagala.infrastructure.IAssetTextFileReader
+import com.pawelsmagala.infrastructure.InfrastructureConfig
 import com.pawelsmagala.infrastructure.song.localFileSong.LocalFileSongDataSource
 import com.squareup.moshi.Moshi
-import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,7 +19,7 @@ object DomainModule {
                                  moshi: Moshi
     ) : SongDataSource
     {
-        val dataSource = LocalFileSongDataSource(assetTextFileReader, moshi, InfrastructureConfig.jsonFileName)
+        return LocalFileSongDataSource(assetTextFileReader, moshi, InfrastructureConfig.jsonFileName)
     }
 
 }
