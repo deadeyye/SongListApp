@@ -1,4 +1,4 @@
-package com.pawelsmagala.songlistapp
+package com.pawelsmagala.songlistapp.SongListActivity
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,9 +6,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pawelsmagala.domain.song.Song
 import com.pawelsmagala.songlistapp.databinding.SongListItemBinding
 
-class SongAdapter(private val songList: List<Song>):
+class SongAdapter():
     RecyclerView.Adapter<SongAdapter.ViewHolder>() {
     class ViewHolder(val binding: SongListItemBinding) : RecyclerView.ViewHolder(binding.root)
+
+    val songList = ArrayList<Song>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = SongListItemBinding.inflate(
@@ -24,5 +26,12 @@ class SongAdapter(private val songList: List<Song>):
     }
 
     override fun getItemCount() = songList.size
+
+    fun setSongList(newSongList: List<Song>)
+    {
+        songList.clear()
+        songList.addAll(newSongList)
+        notifyDataSetChanged()
+    }
 
 }

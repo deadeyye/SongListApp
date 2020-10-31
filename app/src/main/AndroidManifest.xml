@@ -11,7 +11,7 @@
         android:theme="@style/Theme.SongListApp"
         android:name=".SongAppApplication"
         >
-        <activity android:name=".MainActivity">
+        <activity android:name=".SongListActivity.SongListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
