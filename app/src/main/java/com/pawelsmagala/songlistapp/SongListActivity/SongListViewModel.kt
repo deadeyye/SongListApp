@@ -1,4 +1,4 @@
-package com.pawelsmagala.songlistapp.songListActivity
+package com.pawelsmagala.songlistapp.SongListActivity
 
 import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
