@@ -18,7 +18,7 @@ object InfrastructureModule {
      fun bindsAssetTextFileReader(context: Application): IAssetTextFileReader= AssetTextFileReader(context)
 
     @Provides
-    fun returnMoshi() : Moshi = InfrastuctureFactory.moshi()
+    fun returnMoshi(): Moshi = InfrastuctureFactory.moshi()
 
 
 }
