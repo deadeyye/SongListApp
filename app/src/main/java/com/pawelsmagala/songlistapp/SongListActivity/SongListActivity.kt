@@ -16,7 +16,7 @@ class SongListActivity : AppCompatActivity() {
     private var _binding: ActivityMainBinding? = null
     private val binding get() = _binding!!
 
-    private val songAdapter = SongAdapter()
+    private val songAdapter = SongRecyclerAdapter()
 
 
 

@@ -2,12 +2,11 @@ package com.pawelsmagala.songlistapp.songListActivity
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
 import com.pawelsmagala.domain.song.Song
-import com.pawelsmagala.songlistapp.GenericViewBindingAdapter
+import com.pawelsmagala.songlistapp.GenericBindingRecyclerAdapter
 import com.pawelsmagala.songlistapp.databinding.SongListItemBinding
 
-class SongAdapter() : GenericViewBindingAdapter<SongListItemBinding, Song>() {
+class SongRecyclerAdapter() : GenericBindingRecyclerAdapter<SongListItemBinding, Song>() {
     override fun generateViewWithBinding(parent: ViewGroup): SongListItemBinding {
         return SongListItemBinding.inflate(
             LayoutInflater.from(parent.context), parent, false

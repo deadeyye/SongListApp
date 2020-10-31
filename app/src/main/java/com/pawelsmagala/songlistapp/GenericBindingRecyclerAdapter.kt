@@ -3,10 +3,9 @@ package com.pawelsmagala.songlistapp
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
-import com.pawelsmagala.domain.song.Song
 
-abstract class GenericViewBindingAdapter<ViewBindingType : ViewBinding, ItemType>() :
-    RecyclerView.Adapter<GenericViewBindingAdapter.ViewHolder<ViewBindingType>>() {
+abstract class GenericBindingRecyclerAdapter<ViewBindingType : ViewBinding, ItemType>() :
+    RecyclerView.Adapter<GenericBindingRecyclerAdapter.ViewHolder<ViewBindingType>>() {
 
 
     class ViewHolder<ViewBindingType : ViewBinding>(val binding: ViewBindingType) :
