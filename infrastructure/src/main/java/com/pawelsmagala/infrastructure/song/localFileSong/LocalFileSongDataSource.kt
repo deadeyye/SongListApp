@@ -2,6 +2,7 @@ package com.pawelsmagala.infrastructure.song.localFileSong
 
 import com.pawelsmagala.domain.song.Song
 import com.pawelsmagala.domain.song.SongDataSource
+import com.pawelsmagala.domain.song.SongSourceName
 import com.pawelsmagala.infrastructure.IAssetTextFileReader
 import com.pawelsmagala.infrastructure.InfrastuctureFactory
 import com.squareup.moshi.Moshi
@@ -29,7 +30,7 @@ class LocalFileSongDataSource (
 
 
 
-    override fun getSourceName() = "local"
+    override fun getSourceName() = SongSourceName.LOCAL
 
 
 }

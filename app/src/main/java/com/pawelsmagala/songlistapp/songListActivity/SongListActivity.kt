@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.pawelsmagala.songlistapp.SongListActivity.SongListViewModel
 import com.pawelsmagala.songlistapp.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 

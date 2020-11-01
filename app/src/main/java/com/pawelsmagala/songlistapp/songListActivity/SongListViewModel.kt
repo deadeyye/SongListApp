@@ -1,4 +1,4 @@
-package com.pawelsmagala.songlistapp.SongListActivity
+package com.pawelsmagala.songlistapp.songListActivity
 
 import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
@@ -6,14 +6,15 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import com.pawelsmagala.domain.song.SongDataSource
+import com.pawelsmagala.domain.song.SongRepository
 
 class SongListViewModel @ViewModelInject constructor(
-    val songDataSource: SongDataSource,
+    val songRepository: SongRepository,
     @Assisted private val savedStateHandle: SavedStateHandle
 
 
 ): ViewModel() {
 
-    val songLiveData =  songDataSource.getSongList().asLiveData()
+    val songLiveData =  songRepository.getAllSongs().asLiveData()
 
 }
