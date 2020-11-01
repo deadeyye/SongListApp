@@ -6,6 +6,7 @@ import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import com.pawelsmagala.domain.song.Song
 import com.pawelsmagala.infrastructure.song.localFileSong.LocalFileSongDataSource
+import com.pawelsmagala.infrastructure.song.localFileSong.LocalFileSongAdapter
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.single
 import kotlinx.coroutines.runBlocking
@@ -25,7 +26,7 @@ class LocalFileSongDataSourceTest {
     private val fileReaderMock: AssetTextFileReader = mock()
 
 
-    private val jsonAdapter = InfrastuctureFactory.moshiSongAdapter(InfrastuctureFactory.moshi())
+    private val jsonAdapter = InfrastructureFactory.moshiSongAdapter(InfrastructureFactory.moshi(LocalFileSongAdapter()))
 
     private val songDataSource = LocalFileSongDataSource(fileReaderMock, jsonAdapter, InfrastructureConfig.jsonFileName)
 
