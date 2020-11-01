@@ -1,7 +1,7 @@
 package com.pawelsmagala.infrastructure
 
 
-import InfrastructureConfig
+
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import com.pawelsmagala.domain.song.Song
@@ -25,13 +25,13 @@ class LocalFileSongDataSourceTest {
     private val fileReaderMock: AssetTextFileReader = mock()
 
 
-    private val moshi = InfrastuctureFactory.moshi()
+    private val jsonAdapter = InfrastuctureFactory.moshiSongAdapter(InfrastuctureFactory.moshi())
 
-    private val songDataSource = LocalFileSongDataSource(fileReaderMock, moshi, InfrastructureConfig.jsonFileName)
+    private val songDataSource = LocalFileSongDataSource(fileReaderMock, jsonAdapter, InfrastructureConfig.jsonFileName)
 
     @ExperimentalCoroutinesApi
     @Test
-    fun `loaded file should return proper song data`() = runBlocking<Unit> {
+    fun `loaded file should return proper song data`() = runBlocking {
 
         //given
         val json = loadFileFromTestResource(properJsonFile)

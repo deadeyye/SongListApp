@@ -1,13 +1,14 @@
 package com.pawelsmagala.songlistapp.di
 
+import com.pawelsmagala.domain.song.Song
 import com.pawelsmagala.domain.song.SongDataSource
 import com.pawelsmagala.domain.song.SongRepository
 import com.pawelsmagala.infrastructure.IAssetTextFileReader
 import com.pawelsmagala.infrastructure.InfrastructureConfig
 import com.pawelsmagala.infrastructure.song.SongRepositoryImpl
 import com.pawelsmagala.infrastructure.song.localFileSong.LocalFileSongDataSource
+import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
-import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -20,9 +21,9 @@ object SongDomainModule {
 
     @Provides
     @IntoSet
-    fun localSongDataSource(  assetTextFileReader: IAssetTextFileReader, moshi: Moshi) : SongDataSource
+    fun localSongDataSource(  assetTextFileReader: IAssetTextFileReader, songJsonAdapter: JsonAdapter<List<Song>>) : SongDataSource
     {
-        return LocalFileSongDataSource(assetTextFileReader, moshi, InfrastructureConfig.jsonFileName)
+        return LocalFileSongDataSource(assetTextFileReader, songJsonAdapter, InfrastructureConfig.jsonFileName)
     }
 
 

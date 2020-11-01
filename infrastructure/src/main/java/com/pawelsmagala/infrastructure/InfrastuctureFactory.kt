@@ -11,14 +11,14 @@ object InfrastuctureFactory
 {
     fun moshi(): Moshi = Moshi.Builder().
                             add(LocalFileSongAdapter())
-                            .addLast( KotlinJsonAdapterFactory())
+                            .addLast(KotlinJsonAdapterFactory())
                             .build()
 
 
-    fun moshiSongAdapter():  JsonAdapter<List<Song>>
+    fun moshiSongAdapter(moshi: Moshi):  JsonAdapter<List<Song>>
     {
         val type = Types.newParameterizedType(List::class.java, Song::class.java)
-        return moshi().adapter(type)
+        return moshi.adapter(type)
     }
 
 

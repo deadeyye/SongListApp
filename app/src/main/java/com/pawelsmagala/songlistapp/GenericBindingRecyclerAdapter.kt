@@ -4,7 +4,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 
-abstract class GenericBindingRecyclerAdapter<ViewBindingType : ViewBinding, ItemType>() :
+abstract class GenericBindingRecyclerAdapter<ViewBindingType : ViewBinding, ItemType> :
     RecyclerView.Adapter<GenericBindingRecyclerAdapter.ViewHolder<ViewBindingType>>() {
 
 
