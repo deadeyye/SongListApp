@@ -1,10 +1,12 @@
 package com.pawelsmagala.songlistapp.songListActivity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.pawelsmagala.songlistapp.SongListActivity.SongListViewModel
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
+import com.pawelsmagala.domain.song.SongSourceName
 import com.pawelsmagala.songlistapp.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -29,10 +31,11 @@ class SongListActivity : AppCompatActivity() {
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.tabs.addOnTabSelectedListener(onTabSelectedListener)
         setupRecyclerView()
 
         viewModel.songLiveData.observe(this, {
-                songList -> songAdapter.setItemList(songList)
+                songList -> songAdapter.itemList = songList
         })
 
     }
@@ -44,4 +47,19 @@ class SongListActivity : AppCompatActivity() {
             adapter = songAdapter
         }
     }
+
+    val onTabSelectedListener = object : OnTabSelectedListener {
+        override fun onTabSelected(tab: TabLayout.Tab?) {
+            when (tab?.position) {
+                0-> viewModel.getSongsFromAllSources()
+                1 -> viewModel.getSongsFromSource(SongSourceName.LOCAL)
+                2 -> viewModel.getSongsFromSource(SongSourceName.ITUNES)
+            }
+        }
+
+        override fun onTabUnselected(tab: TabLayout.Tab?) {}
+        override fun onTabReselected(tab: TabLayout.Tab?) {}
+    }
+
+
 }

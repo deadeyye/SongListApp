@@ -1,11 +1,13 @@
 package com.pawelsmagala.infrastructure
 
 
-import InfrastructureConfig
+
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import com.pawelsmagala.domain.song.Song
 import com.pawelsmagala.infrastructure.song.localFileSong.LocalFileSongDataSource
+import com.pawelsmagala.infrastructure.song.localFileSong.LocalFileSongAdapter
+import com.pawelsmagala.infrastructure.utils.AssetTextFileReader
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.single
 import kotlinx.coroutines.runBlocking
@@ -25,13 +27,13 @@ class LocalFileSongDataSourceTest {
     private val fileReaderMock: AssetTextFileReader = mock()
 
 
-    private val moshi = InfrastuctureFactory.moshi()
+    private val jsonAdapter = InfrastructureFactory.moshiSongAdapter(InfrastructureFactory.moshi(LocalFileSongAdapter()))
 
-    private val songDataSource = LocalFileSongDataSource(fileReaderMock, moshi, InfrastructureConfig.jsonFileName)
+    private val songDataSource = LocalFileSongDataSource(fileReaderMock, jsonAdapter, InfrastructureConfig.jsonFileName)
 
     @ExperimentalCoroutinesApi
     @Test
-    fun `loaded file should return proper song data`() = runBlocking<Unit> {
+    fun `loaded file should return proper song data`() = runBlocking {
 
         //given
         val json = loadFileFromTestResource(properJsonFile)

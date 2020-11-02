@@ -4,5 +4,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface SongDataSource {
     fun getSongList(): Flow<List<Song>>
-    fun getSourceName(): String
+    fun getSourceName(): SongSourceName
 }

@@ -9,8 +9,11 @@ java {
 }
 
 dependencies {
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation "javax.inject:javax.inject:1"
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.0-RC2")
+
 
     // Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.0"

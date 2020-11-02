@@ -6,7 +6,7 @@ import com.pawelsmagala.domain.song.Song
 import com.pawelsmagala.songlistapp.GenericBindingRecyclerAdapter
 import com.pawelsmagala.songlistapp.databinding.SongListItemBinding
 
-class SongRecyclerAdapter() : GenericBindingRecyclerAdapter<SongListItemBinding, Song>() {
+class SongRecyclerAdapter : GenericBindingRecyclerAdapter<SongListItemBinding, Song>() {
     override fun generateViewWithBinding(parent: ViewGroup): SongListItemBinding {
         return SongListItemBinding.inflate(
             LayoutInflater.from(parent.context), parent, false
