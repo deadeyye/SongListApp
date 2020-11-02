@@ -7,6 +7,7 @@ import com.nhaarman.mockitokotlin2.whenever
 import com.pawelsmagala.domain.song.Song
 import com.pawelsmagala.infrastructure.song.localFileSong.LocalFileSongDataSource
 import com.pawelsmagala.infrastructure.song.localFileSong.LocalFileSongAdapter
+import com.pawelsmagala.infrastructure.utils.AssetTextFileReader
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.single
 import kotlinx.coroutines.runBlocking

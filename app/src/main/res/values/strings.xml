@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">SongListApp</string>
     <string name="all">All</string>
-    <string name="local">local</string>
+    <string name="local">Local</string>
     <string name="remote">Remote</string>
 </resources>

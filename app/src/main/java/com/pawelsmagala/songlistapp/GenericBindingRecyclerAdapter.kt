@@ -11,7 +11,11 @@ abstract class GenericBindingRecyclerAdapter<ViewBindingType : ViewBinding, Item
     class ViewHolder<ViewBindingType : ViewBinding>(val binding: ViewBindingType) :
         RecyclerView.ViewHolder(binding.root)
 
-    protected val itemList = ArrayList<ItemType>()
+    var itemList: List<ItemType> = ArrayList()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
 
     abstract fun generateViewWithBinding(parent: ViewGroup): ViewBindingType
     abstract fun fillViewWithData(bindingView: ViewBindingType, item: ItemType)
@@ -28,9 +32,4 @@ abstract class GenericBindingRecyclerAdapter<ViewBindingType : ViewBinding, Item
 
     override fun getItemCount() = itemList.size
 
-    fun setItemList(newItems: List<ItemType>) {
-        itemList.clear()
-        itemList.addAll(newItems)
-        notifyDataSetChanged()
-    }
 }
